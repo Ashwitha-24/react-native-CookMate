@@ -79,6 +79,7 @@ Navigation: The navigation folder handles tab and stack navigation using react-n
 Store: The store folder contains the Redux store and the recipeSlice, which handles fetching recipes from the API, managing state, and storing viewed recipes.
 
 Screens:
+
 RecipeChatScreen: Allows users to search and speak to get the related recipes list.
 
 RecipeDetailsScreen: Displays detailed information about the selected recipe (ingredients, instructions).
