@@ -53,21 +53,36 @@ For Android, you need to request microphone permissions to use voice recognition
 Android: Add the following permissions in android/app/src/main/AndroidManifest.xml:
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.INTERNET" />
-After that, make sure to grant the necessary permissions for the microphone and other resources when you run the app.
+
+
+
 For Android:
 Add the following permissions in android/app/src/main/AndroidManifest.xml to request microphone access and other necessary permissions.
 <key>NSMicrophoneUsageDescription</key>
 <string>We need access to your microphone to recognize your voice for searching recipes.</string>
+
+
+After that, make sure to grant the necessary permissions for the microphone and other resources when you run the app.
+
+
 7.Project Structure
+
 /src
   /navigation              # Tab and Stack Navigation setup
+
   /store                   # Redux store and slices (e.g., recipeSlice)
+
   /screens                 # Screens (RecipeChat, RecipeDetails, SavedItems)
+
 Navigation: The navigation folder handles tab and stack navigation using react-navigation.
+
 Store: The store folder contains the Redux store and the recipeSlice, which handles fetching recipes from the API, managing state, and storing viewed recipes.
+
 Screens:
 RecipeChatScreen: Allows users to search and speak to get the related recipes list.
+
 RecipeDetailsScreen: Displays detailed information about the selected recipe (ingredients, instructions).
+
 SavedItemsScreen: Shows a list of saved recipes, including their instructions and ingredients.
 
 
