@@ -1,79 +1,78 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Recipe Chatbot App
+This is a React Native application designed to allow users to search for food recipes using both text input and voice recognition. The app fetches recipes from the Spoonacular API and displays the list of ingredients and cooking instructions. Users can save recipes to their viewed list, and the app also supports offline persistence using Redux and local storage.
 
-# Getting Started
+Features
+Voice Recognition: Users can ask for recipes using voice commands.
+Text Input: Users can type queries to search for recipes.
+Recipe List: Displays a list of recipes based on the search query.
+Recipe Details: When a user selects a recipe, detailed information including ingredients and instructions is displayed.
+Save Recipes: Users can save viewed recipes in the local storage for later reference.
+Redux for State Management: All state management, including the list of recipes and selected recipe details, is handled with Redux Toolkit.
+Libraries and Tools Used
+React Native: Framework for building the mobile app.
+TypeScript: Typed superset of JavaScript for enhanced developer experience.
+Redux Toolkit: For managing global app state (recipes, selected recipe details, etc.).
+Axios: For making HTTP requests to the Spoonacular API.
+React Navigation: For managing app navigation, including the bottom tab navigator.
+React Native Voice: For implementing voice recognition functionality.
+Spoonacular API: To fetch food recipes and their details.
+AsyncStorage: To save recipes for offline use (managed through Redux).
+Requirements
+Node.js
+npm or yarn
+Android Studio / Xcode (for running the app on an emulator or real device)
+Setup
+Follow these steps to set up the project locally.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+1. Clone the Repository
+https://github.com/Ashwitha-24/react-native-CookMate.git
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
+2. Install Dependencies
+Use npm or yarn to install the dependencies.
+npm install
+3. Setup Android or iOS Emulator/Device
+For Android: Make sure you have Android Studio installed and configured.
+For iOS: Ensure you have Xcode installed and configured.
+4. Run the App
+Android
 npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
+This command will build and run the app on your Android emulator or connected device.
+iOS
+If you're on a Mac and want to run the app on iOS:
 npm run ios
+5. API Key Setup
+You need an API key to access the Spoonacular API.
 
-# OR using Yarn
-yarn ios
-```
+Step 1: Create an account at Spoonacular API.
+Step 2: After signing up, create a new API key from the Spoonacular API dashboard.
+Step 3: Store the API key in the recipeSlice within the store folder, under src/store/recipeSlice.ts.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+6. Permissions for Voice Recognition
+For Android, you need to request microphone permissions to use voice recognition.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Android: Add the following permissions in android/app/src/main/AndroidManifest.xml:
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.INTERNET" />
+After that, make sure to grant the necessary permissions for the microphone and other resources when you run the app.
+For Android:
+Add the following permissions in android/app/src/main/AndroidManifest.xml to request microphone access and other necessary permissions.
+<key>NSMicrophoneUsageDescription</key>
+<string>We need access to your microphone to recognize your voice for searching recipes.</string>
+7.Project Structure
+/src
+  /navigation              # Tab and Stack Navigation setup
+  /store                   # Redux store and slices (e.g., recipeSlice)
+  /screens                 # Screens (RecipeChat, RecipeDetails, SavedItems)
+Navigation: The navigation folder handles tab and stack navigation using react-navigation.
+Store: The store folder contains the Redux store and the recipeSlice, which handles fetching recipes from the API, managing state, and storing viewed recipes.
+Screens:
+RecipeChatScreen: Allows users to search and speak to get the related recipes list.
+RecipeDetailsScreen: Displays detailed information about the selected recipe (ingredients, instructions).
+SavedItemsScreen: Shows a list of saved recipes, including their instructions and ingredients.
 
-## Step 3: Modifying your App
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
